@@ -3,16 +3,13 @@ from tkinter import messagebox
 import time
 import threading
 
-# Set theme
 ctk.set_appearance_mode("Dark")
 ctk.set_default_color_theme("blue")
 
-# App window
 app = ctk.CTk()
 app.title("FocusFlow - ToDo + Timer")
 app.geometry("500x600")
 
-# ---------- Task Manager ----------
 tasks = []
 
 def add_task():
@@ -30,7 +27,6 @@ def remove_task():
         task_listbox.delete(selected[0])
         del tasks[selected[0]]
 
-# ---------- Timer ----------
 timer_running = False
 def start_timer():
     global timer_running
@@ -54,7 +50,6 @@ def run_timer():
         messagebox.showinfo("Time's up!", "Focus session complete!")
     stop_timer()
 
-# ---------- Layout ----------
 
 title = ctk.CTkLabel(app, text="🧠 FocusFlow", font=("Segoe UI", 30, "bold"))
 title.pack(pady=20)
@@ -79,7 +74,6 @@ def insert_tasks():
     for task in tasks:
         task_listbox.insert("end", task)
 
-# Timer section
 timer_label = ctk.CTkLabel(app, text="25:00", font=("Segoe UI", 40, "bold"))
 timer_label.pack(pady=30)
 
